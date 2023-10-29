@@ -1,0 +1,40 @@
+<nav>
+  <a routerLink="/home"><img src="/assets/images/Home.png" width="40px" height="40px"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a routerLink="/aboutus"><img src="/assets/images/aboutUs.png" width="40px"
+    height="40px" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <!-- <a routerLink="/contactus"><img src="/assets/images/contactUs.jpg" width="40px" height="40px" /></a> -->
+</nav>
+
+<b>Provide your contact details...</b>
+<br><br>
+ 
+<form #ContactData="ngForm" (ngSubmit)="addcontact(ContactData)">
+ 
+    FirstName<input type="text"  name="firstname" ngModel ><br>
+    LastName<input type="text" name="lastname" ngModel><br>
+    EmailID<input type="email" name="email" ngModel><br>
+    PhoneNumber<input type="text" name="phonenumber" ngModel><br>
+   
+    <input type="submit" value="Add contact">
+    <input type="button" value="Get contact" (click)="getallcontact()"/>
+   
+</form>
+<br>
+<p>{{this.expresponse.substring(3,this.expresponse.length-4)}}</p>
+<table border>
+  <thead>
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>EmailID</th>  
+      <th>PhoneNumber</th>  
+    </tr>
+    <tr *ngFor="let user of contactList">
+     <td>{{user.firstname}}</td>
+     <td>{{user.lastname}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phonenumber}}</td>
+     
+    </tr>
+  </thead>
+</table>
